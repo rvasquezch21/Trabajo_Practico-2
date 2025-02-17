@@ -1,20 +1,17 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+from models import User
 
 app = FastAPI()
 
-class User(BaseModel):
-    name: str
-    email: str
-
+# Lista para almacenar usuarios
 users = []
 
-@app.post("/add_user/")
+@app.post("/add_user/", response_model=User)  # Utilizando User como modelo de respuesta
 async def add_user(user: User):
     users.append(user)
-    return {"message": "User added successfully"}
+    return user  # Ahora devolvemos el objeto User
 
-@app.get("/get_user/{user_name}")
+@app.get("/get_user/{user_name}", response_model=User)  # Utilizando User como modelo de respuesta
 async def get_user(user_name: str):
     for user in users:
         if user.name == user_name:
