@@ -1,0 +1,23 @@
+# Ignorar archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+.env
+.venv/
+env/
+venv/
+
+# Ignorar el directorio de dependencias y otros archivos del entorno virtual
+.venv/
+env/
+venv/
+
+# Ignorar archivos de configuración de IDEs
+.idea/
+.vscode/
+
+# Ignorar archivos específicos de sistemas operativos
+.DS_Store
+Thumbs.db
